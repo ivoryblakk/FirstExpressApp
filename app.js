@@ -3,12 +3,13 @@ var app = express(); // This is the HANDLER
 var bodyParser = require('body-parser');
 var path = require('path');
 var routesBasic = require('./controllers/routesBasic');
-
+var routesInterest = require('./controllers/routesInterest');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/calculator', routesBasic);
+app.use('/calculator', routesInterest);
 /*app.get('/math/:operation/:arg1/:arg2', function(req, res) {
   var operator = req.params.operation;
   var num1 = Number(req.params.arg1);

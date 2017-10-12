@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+<form action="/calculator/interest" method="POST">
+<table >
+ <tr>
+    <th>Value</th>
+    <th>Input</th> 
+  </tr>
+<tr>
+    <td>P</td>
+    <td>R</td>
+    <td>T</td>
+    <td>N</td>
+</tr>
+<tr>
+    <td><input name = "arg1" placeholder = "arg1"></td>
+    <td><input name= "arg2" placeholder = "arg2" ></td>
+    <td><input name= "arg3" placeholder = "arg3"></td>
+    <td><input name= "arg4"  placeholder = "arg4"> </td>
+</tr>
+</table>
+<input type="submit" name="operation" value="compound">
+
+<input type ="submit" name="operation" value="simple">
+</form>
+
+
+<% if (result) { %>
+
+<p>result: <%= result %> </p>
+
+<% } %>
+<% include partials/footer %> 

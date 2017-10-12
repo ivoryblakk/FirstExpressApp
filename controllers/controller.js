@@ -26,8 +26,11 @@ calcController = {
     calcModel.lastResult = result;
     return result;
   },
-  operate: function(operation, args) {
-    return this.logic[operation](...args); // ..takes multiple numbers as an array
+  interest: function(operation, arr) {
+    //console.log('in controller ' + this.interestLogic);
+    var result = this.interestLogic[operation](arr);
+    //console.log(result);
+    return result;
   },
   clear: function() {
     var lastResult = calcModel.lastResult;
@@ -36,4 +39,4 @@ calcController = {
   }
 };
 
-module.exports = calcController;
+module.exports = calcController; // when exported is looses the variable name calcController

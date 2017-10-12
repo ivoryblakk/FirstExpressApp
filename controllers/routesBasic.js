@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/basic', (req, res) => {
-  res.render('home');
+  res.render('home', { result: null });
 });
 router.post('/basic', (req, res) => {
   var operation = req.body.operation; // home.ejs  name: operation value: " the operation (+/*-)"
   var num1 = req.body.arg1;
   var num2 = req.body.arg2;
   var result = controller[operation](Number(num1), Number(num2)); // when exported is looses the variable name calcController
-  console.log(req.body); // console log the body to see the outputs on your ejs file for example this is conneted to home.ejs
+  //console.log(req.body); // console log the body to see the outputs on your ejs file for example this is conneted to home.ejs
   res.render('home', { result: result }); // things have to be returned as a object
 });
 
