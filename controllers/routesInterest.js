@@ -1,0 +1,10 @@
+var express = require('express');
+var app = express();
+var logic = require('./'); // logic object for interest
+var controller = require('./controllers/controller');
+var model = require('../model');
+var bodyParser = require('body-parser');
+var path = require('path');
+var routes = require('./controllers/routes');
+controller.logic = logic;
+controller.model = model;

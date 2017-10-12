@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<form action="/calculator/basic" method="POST">
+<input name = "arg1">
+<input type="submit" name="operation" value="subtract">
+<input type="submit" name="operation"  value="add"> 
+<input type="submit" name="operation"  value="multiply">
+<input type="submit" name="operation"  value="divide">
+<input name= "arg2">
+</form>
+
+<p>result: <%= result %> </p>
+
+<% include partials/footer %> <!-- include pulls from a directory -->
