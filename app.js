@@ -7,9 +7,34 @@ var routesInterest = require('./controllers/routesInterest');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+var port = process.env.PORT || 3000;
+app.set('port', port);
 
 app.use('/calculator', routesBasic);
 app.use('/calculator', routesInterest);
+
+app.get('/', (req, res) => {
+  res.render('index.ejs');
+});
+
+app.post('/', (req, res) => {
+  var basic = req.body.basic;
+  var interest = req.body.interest;
+  if (basic == 'basic') {
+    res.redirect('/calculator/basic');
+  } else {
+    res.redirect('/calculator/interest');
+  }
+});
+
+app.get('*', (req, res) => {
+  res.render('index.ejs');
+});
+
+app.listen(port, function() {
+  console.log('Server has started');
+});
+
 /*app.get('/math/:operation/:arg1/:arg2', function(req, res) {
   var operator = req.params.operation;
   var num1 = Number(req.params.arg1);
@@ -19,10 +44,6 @@ app.use('/calculator', routesInterest);
 
   res.send({ number: result });
 });*/
-
-app.listen(3000, function() {
-  console.log('Server has started');
-});
 
 /*app.get('/speak/:animal', function(req, res) {
   var animals = req.params.animal;

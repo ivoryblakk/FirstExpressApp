@@ -7,9 +7,9 @@ var model = require('../models/model');
 controller.logic = logic;
 controller.model = model;
 
-router.get('/', (req, res) => {
-  res.send('hello');
-});
+//router.get('/', (req, res) => {
+//res.send('hello');
+//});
 
 router.get('/basic', (req, res) => {
   res.render('home', { result: null });
